@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+
+<!--
+    Entrada de dados: inserir o valor do jantar;
+    Processamento: calcular e informar a taxa do garçom de 10% e informar o valor total da janta;
+    Saíde: Informar o valor total a ser pago;
+-->
+
+<script>
+    const jantar = Number(prompt("Valor do jantar R$: "));  // lê o valor do jantar;
+    const garcom = jantar *0.10;                            // calcula a taxa do garçom;
+    const total = jantar+garcom;
+    alert(`Taxa garçom R$: ${garcom.toFixed(2)}\nTotal R$: ${total.toFixed(2)}`);
+
+    // A declaração 'toFixed' indica que o valor a ser apresentado deve conter 2 casas decimais;
+</script>

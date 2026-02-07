@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+
+<!--
+    EXERCÍCIO 2
+
+    Saída de dados: ler o valor da conta e total de clientes pagantes
+    Processamento: calcular o valor dividido para cada cliente
+    Saída: informar o valor total da compra e valor por cliente
+-->
+
+<script>
+    const valorConta = Number(prompt("Valor total conta: "));   // entrada;
+    const clientes = Number(prompt("Número de clientes; "));    // processamento;
+    const valorCliente = valorConta/clientes;
+    alert(`Total conta: ${valorConta.toFixed(2)}\nQuantos clientes: ${clientes}\nValor por cliente: ${valorCliente.toFixed(2)}`); // saída;
+</script>

@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+
+<!--
+    EXERCÍCIO 3
+
+    Saída de dados: ler o preço de um produto
+    Processamento: calcular pagamento a vista com 10% desconto ou em 3x;
+    Saída: informar o valor total e opções de pagamento
+-->
+
+<script>
+    const valorProduto = Number(prompt("Valor produto: ")); //entrada;
+    const desconto = (valorProduto/100) * 90;
+    const parcelado = valorProduto / 3;
+    alert(`Produto R$: ${valorProduto.toFixed(2)}\nPagamento a vista com 10% off R$: ${desconto.toFixed(2)}\nPagamento parcelado em 3x R$: ${parcelado.toFixed(2)}`);
+</script>
