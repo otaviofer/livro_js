@@ -9,3 +9,7 @@ img {
 h1 {
   border-bottom-style: inset;
 }
+
+body{
+  background-color: rgb(234, 234, 234);
+}
