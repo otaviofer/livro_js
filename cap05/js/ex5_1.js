@@ -8,8 +8,8 @@ frm.addEventListener("submit", (e) => {
 
     // cria um laço de repetção (i começa em 1 e é incrementado até 10)
     for (let i=1; i<=10; i++){
-        resposta = resposta + numero + " x " + i + " = " + (numero*i) + "\n";
-        // resposta = `${resposta}${numero} x ${i} = ${numero*i}\n`
+        // resposta = resposta + numero + " x " + i + " = " + (numero*i) + "\n" exemplo com concatenação;
+        resposta = `${resposta}${numero} x ${i} = ${numero*i}\n`;
     }
     // o conteúdo da tag pre é alterado para exibir a tabuada do numero inserido
     resp.innerText = resposta;
