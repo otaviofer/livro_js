@@ -140,3 +140,56 @@ Um detalhe de sintaxe: o `do...while` é a única estrutura de repetição que e
 
 ---
 
+### Sobre variáveis (let)
+
+Essa é uma das regras mais importantes da "física" do JavaScript. No nosso **Guia do Aventureiro**, chamamos isso de **Escopo de Magia**.
+
+Imagine que as chaves `{ ... }` de um `do...while`, `if` ou `for` são as **paredes de uma masmorra**.
+
+### 1. O Problema: O Escopo de Bloco
+
+Se você declara uma variável com `let` ou `const` **dentro** das chaves, ela nasce e morre ali dentro. Quem está do lado de fora da masmorra não consegue ver o que aconteceu lá dentro.
+
+**Veja o erro comum:**
+
+```javascript
+do {
+    let num = Number(prompt("Número: ")); // Variável nasce aqui
+} while (num == 0); // ERRO! O while está fora das chaves e não enxerga o 'num'
+
+```
+
+No código acima, o `while` tentaria checar o valor de `num`, mas para ele, essa variável simplesmente **não existe**. O programa travaria com um erro de "ReferenceError".
+
+---
+
+### 2. A Solução: A Variável Global ao Bloco
+
+Para que o `while` (que fica no pé da estrutura) e o resto do seu código consigam acessar o valor, você precisa declarar a variável **um nível acima**, antes de abrir as chaves.
+
+**O jeito certo (como está no seu código):**
+
+```javascript
+let num; // 1. Você "reserva o espaço" na mochila do aventureiro (escopo externo)
+
+do {
+    num = Number(prompt("Número: ")); // 2. Você apenas preenche o valor lá dentro
+} while (num == 0); // 3. Agora o while consegue enxergar o valor de 'num'!
+
+alert(num); // 4. O resto do código também tem acesso.
+
+```
+
+---
+
+### 📝 Para a Mochila:
+
+* **Dentro das chaves:** A variável é "privada" daquele bloco. Útil para contadores de loop como o `let i = 0` (você não precisa do `i` depois que o loop acaba).
+* **Fora das chaves:** A variável é "acessível" para aquele bloco e para tudo o que vier depois dele. Essencial quando você quer capturar um dado (como um número ou nome) e usá-lo no resto do programa.
+
+### 💡 Pense assim:
+
+É como um efeito de poção.
+
+* Se você bebe a poção **dentro** de uma sala mágica (bloco), o efeito só dura enquanto você estiver naquela sala.
+* Se você já entra na sala **com o efeito** da poção (variável declarada fora), o efeito continua ativo mesmo depois que você sai pela porta dos fundos.

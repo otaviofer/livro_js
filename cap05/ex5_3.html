@@ -1,0 +1,45 @@
+<script>
+  /** Programa para validar a entrada de dados de um cliente */
+
+  let num; // declara variável num com let, pois ela pode ser alterada
+  // e será acessada fora do bloco do...while
+  do {
+    // cria o laço de repetição (faça...)
+    num = Number(prompt("Número: ")); // lê um número
+    if (num == 0 || isNaN(num)) {
+      // se o num = 0 ou invalido
+      alert("Digite um número válido...");
+    }
+  } while (num == 0 || isNaN(num)); // ... enquanto o num=o ou inválido
+  let pares = `Pares entre 1 e ${num}: `; // string que irá conter a resposta
+  for (let i = 2; i <= num; i = i + 2) {
+    pares = pares + i + ", ";
+  }
+  alert(pares); // exibe lista dos números pares
+  console.log(pares);
+</script>
+
+<!--
+### 🛡️ Etapa 1: O "Portão de Segurança" (`do...while`)
+
+Sabe quando um NPC não te deixa passar enquanto você não entregar o item correto? É isso que o `do...while` faz aqui.
+
+* **Por que `do...while`?** Porque você precisa perguntar o número **pelo menos uma vez**. Não faz sentido checar se o número é válido antes mesmo do usuário digitar.
+* **O Filtro:** `if(num == 0 || isNaN(num))`. Aqui você avisa o usuário: "Ei, zero ou letras não servem!".
+* **A Condição de Repetição:** `while(num == 0 || isNaN(num))`. Enquanto o usuário persistir no erro (digitar 0 ou texto), o programa o joga de volta para dentro do `do { ... }`. Ele só sai do laço quando digitar um número válido (ex: 10).
+
+> **Atenção ao Escopo:** Note que `let num` foi declarada **fora** do `do`. Se ela fosse criada dentro das chaves, o `while` lá embaixo não conseguiria "enxergá-la" para fazer a conferência. É como deixar a chave do lado de fora da cela.
+
+---
+
+### ⚔️ Etapa 2: A Execução da Tarefa (`for`)
+
+Uma vez que o usuário passou pelo portão, o programa agora tem um número confiável (digamos, o número **10**). Agora o `for` entra em cena para listar os pares.
+
+* **A Estratégia do Pulo:** `for(let i = 2; i <= num; i = i + 2)`.
+* `i = 2`: Começamos no primeiro número par.
+* `i = i + 2`: Em vez de somar 1 em 1, nós somamos de **2 em 2**. Assim, o contador `i` assume os valores: 2, 4, 6, 8, 10.
+
+
+* **A Bolsa de Itens (`pares`):** A variável `pares` começa com um texto e vai "concatenando" (colando) os números conforme o loop gira.
+-->
