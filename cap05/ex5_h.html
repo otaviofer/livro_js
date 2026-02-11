@@ -1,0 +1,25 @@
+<script>
+    alert("Olá! Esse é o programa DOBRO ou TRIPLO");
+    alert("Regras:\n1) Digite um número inteiro.\n2) Se o número for PAR eu te mostro o dobro.\n3) Se o número for ÍMPAR eu te mostro o triplo.\n4) Digite 0 para saír.  ")
+    do{
+        const num = Number(prompt("Número: ")); // lê o numero
+        if(num==0 || isNaN(num)){               // se num=0 ou inválido
+            const sair = confirm("Confirma saída?");    // solicita confirmação do usuário
+            if (sair){
+                break;  // sai da repetição
+            }else{
+                continue;   // volta ao início
+            }
+        }
+        if (num%2==0){                                  // se par,
+            alert(`O dobro de ${num} é: ${num * 2}`);   // mostra o dobro
+        }else{                                          // senão,
+            alert(`O triplo de ${num} é: ${num * 3}`);  // mostra o triplo
+        }
+    } while (true)  // enquanto verdade (só sai do laço, pelo break)
+    alert("Bye, bye...");
+</script>
+
+<!-- const sair = confirm("Confirma saída?")
+
+O método 'confirm()' exibe uma caixa de diálogo com os botões Ok(true) e Cancelar(false). -->
