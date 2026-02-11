@@ -193,3 +193,46 @@ alert(num); // 4. O resto do código também tem acesso.
 
 * Se você bebe a poção **dentro** de uma sala mágica (bloco), o efeito só dura enquanto você estiver naquela sala.
 * Se você já entra na sala **com o efeito** da poção (variável declarada fora), o efeito continua ativo mesmo depois que você sai pela porta dos fundos.
+
+### Break e Continue
+
+Entenda esses dois comandos como "Modificadores de Fluxo". Eles servem para alterar o comportamento de um laço (`for` ou `while`) antes que ele chegue ao fim natural.
+
+### ⛔ `break` (O Interruptor)
+
+O `break` serve para **encerrar o loop imediatamente**. Assim que o código lê essa linha, ele "quebra" as correntes do laço e pula para a primeira linha de código fora dele.
+
+* **Uso em Missões:** Imagine que você está procurando um item em um baú com 100 espaços. Assim que você encontra o item no espaço 5, não faz sentido olhar os outros 95. Você usa o `break` para parar a busca e economizar energia (processamento).
+
+```javascript
+for (let i = 1; i <= 10; i++) {
+    if (i === 5) break; // Encontrou o que queria? Para tudo!
+    console.log(i);     // Vai imprimir apenas: 1, 2, 3, 4
+}
+
+```
+
+---
+
+### ⏭️ `continue` (O Atalho)
+
+O `continue` não para o loop todo, ele apenas **pula a volta atual**. Ele diz ao código: "Ignore o que resta nesta volta e vá direto para a próxima repetição".
+
+* **Uso em Missões:** Imagine que você está saqueando uma masmorra, mas decide ignorar todos os baús que estiverem vazios. Se o baú está vazio, você dá um `continue` para ir ao próximo baú sem perder tempo guardando "ar" na mochila.
+
+```javascript
+for (let i = 1; i <= 5; i++) {
+    if (i === 3) continue; // Pula a interação número 3
+    console.log(i);        // Vai imprimir: 1, 2, 4, 5
+}
+
+```
+
+---
+
+### 🎒 Resumo na Mochila:
+
+* **`break`**: "Cansei, vou embora!" (Sai do loop).
+* **`continue`**: "Este aqui não me interessa, próximo!" (Pula para a próxima volta).
+
+---
