@@ -49,3 +49,94 @@ for (let golpe = 1; golpe <= 10; golpe++) {
 Uma situação clássica de erro em loops é o **"Loop Infinito"**. Isso acontece quando a condição nunca se torna falsa (ex: você esquece de incrementar o contador). O programa "trava" porque o computador fica preso naquela tarefa para sempre.
 
 ---
+
+Excelente. Agora que o `for` está na sua mochila, vamos adicionar as outras duas variações de estruturas de repetição. Embora todas repitam código, a diferença está no **momento da tomada de decisão**.
+
+Aqui está o resumo técnico com aquele tempero de 50% de RPG para o seu Guia:
+
+---
+
+### 🔄 O Laço `while` (Enquanto)
+
+O `while` é usado quando você **não sabe exatamente quantas vezes** algo vai se repetir. Ele depende puramente de uma condição ser verdadeira para continuar.
+
+**No contexto de aventura:** Imagine que seu personagem está tentando abrir uma fechadura com uma gazua. Você não sabe se vai conseguir na 1ª ou na 10ª tentativa. Você continua tentando **enquanto** a porta estiver trancada.
+
+```javascript
+let portaTrancada = true;
+let tentativas = 0;
+
+while (portaTrancada) {
+    tentativas++;
+    console.log(`Tentativa ${tentativas}: Tentando abrir...`);
+    
+    // Simulando uma chance de sucesso
+    if (tentativas === 3) {
+        portaTrancada = false; // A condição muda, o loop para na próxima verificação
+    }
+}
+console.log("Porta aberta!");
+
+```
+
+* **Ponto Chave:** Se a condição for falsa logo de cara (ex: a porta já está aberta), o código dentro do `while` **nunca** é executado. Ele verifica antes de agir.
+
+---
+
+### 🔄 O Laço `do...while` (Faça... enquanto)
+
+Este é o "irmão" do `while`, mas com uma diferença crucial: ele garante que o código seja executado **pelo menos uma vez**, mesmo que a condição seja falsa.
+
+**No contexto de aventura:** Imagine um guerreiro que decide dar um golpe de machado antes mesmo de olhar se o inimigo ainda está de pé. Ele ataca primeiro, e só depois verifica a vida do oponente.
+
+```javascript
+let vidaInimigo = 0;
+
+do {
+    console.log("Você desfere um golpe de misericórdia!");
+    // A verificação acontece SÓ AGORA, depois de ter executado uma vez.
+} while (vidaInimigo > 0);
+
+console.log("Combate encerrado.");
+
+```
+
+* **Ponto Chave:** Mesmo que a `vidaInimigo` seja 0 no início, a mensagem do golpe aparecerá uma vez. No `do...while`, você **age primeiro e pergunta depois**.
+
+---
+
+### 📊 Comparativo para o seu Guia (Checklist de Validação)
+
+| Estrutura | Quando usar? (Estratégia) | Verificação |
+| --- | --- | --- |
+| **`for`** | Quando você sabe o limite exato (ex: 10 voltas na pista). | Antes de cada repetição. |
+| **`while`** | Quando o fim depende de um evento (ex: até o usuário digitar "sair"). | Antes de cada repetição. |
+| **`do...while`** | Quando a ação precisa ocorrer ao menos uma vez (ex: exibir um menu). | Após a primeira execução. |
+
+---
+
+Detalhes técnicos que costumam ser "armadilhas de masmorra" para quem está começando:
+
+### 1. O Risco do Loop Infinito
+
+Diferente do `for`, onde o incremento (`i++`) já fica na "assinatura" do comando, no `while` e no `do...while` **você é o responsável por mudar a condição** dentro do bloco de código.
+
+```javascript
+let energia = 10;
+while (energia > 0) {
+    console.log("Caminhando...");
+    // Se você esquecer a linha abaixo, o programa trava em um loop infinito!
+    energia--; 
+}
+
+```
+
+### 2. O Ponto e Vírgula no `do...while`
+
+Um detalhe de sintaxe: o `do...while` é a única estrutura de repetição que exige um ponto e vírgula `;` logo após o parêntese da condição final.
+
+* `while (condicao) { ... }` (Não precisa)
+* `do { ... } while (condicao);` (**Precisa!**)
+
+---
+
