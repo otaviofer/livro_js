@@ -1,6 +1,7 @@
 const frm = document.querySelector("form");         // obtém os elementos da página
 const resp1 = document.querySelector("#outResp1");
 const resp2 = document.querySelector("#outResp2");
+const limpar = document.querySelector("#btnLimpar");
 
 let resposta = "";      // string com a resposta a ser exibida
 let numContas = 0;      // inicializa contador...
@@ -21,4 +22,13 @@ frm.addEventListener("submit", (e) => {
     frm.inDescricao.value = "";     // limpa os campos do form
     frm.inValor.value = "";
     frm.inDescricao.focus();        // posiciona no campo inDescricao do form
+});
+
+limpar.addEventListener("click", (e) => {
+    numContas = 0;
+    valTotal = 0;
+    resposta = "";
+    resp1.innerText = "Registre uma conta para começar";
+    resp2.innerText = "";
+    frm.inDescricao.focus();
 });
