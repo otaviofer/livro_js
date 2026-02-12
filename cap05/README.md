@@ -272,3 +272,61 @@ Dentro de um loop ou evento, usamos variáveis para rastrear o progresso. Embora
 Agora você sabe que para resetar um sistema, não basta limpar a tela (`innerText`); é preciso "limpar a mente" do código, voltando as variáveis lógicas (`let`) ao seu estado zero.
 
 ---
+
+### Booleanos (nota)
+
+* **É mais comum usar variaveis tipo booleano no inteiros?**
+
+Essa é uma excelente pergunta de "arquiteto de sistemas"! No código que você viu, o autor usou `0` e `1` (inteiros), mas no **mundo real das empresas**, é muito mais comum — e recomendado — usar **Booleanos** (`true` e `false`).
+
+Aqui está o porquê dessa escolha no seu **Guia do Aventureiro**:
+
+### 1. Clareza e Semântica (A Leitura do Código)
+
+O código deve ser lido como uma história. Quando você usa um booleano, a intenção fica óbvia.
+
+* **Com Inteiro:** `if (temDivisor == 1)` — Você precisa saber que "1" significa "sim".
+* **Com Booleano:** `if (temDivisor)` — A leitura é natural: "Se tem divisor...".
+
+### 2. Ocupação na Mochila (Memória)
+
+Antigamente (em linguagens muito antigas como C), usava-se muito o `0` e `1` porque não existia um tipo "booleano" nativo. Hoje, o JavaScript trata o booleano como um tipo primitivo específico para isso. É o item mais leve que você pode carregar na mochila.
+
+### 3. Evitando Erros de "Fogo Amigo"
+
+Usar inteiros pode causar confusão. Se alguém acidentalmente mudar a variável para `2`, o seu `if (temDivisor == 1)` vai falhar, mesmo que o `2` devesse significar que "sim, há divisores". Com `true` e `false`, só existem dois estados possíveis. Não há meio-termo.
+
+---
+
+### 🛡️ Como ficaria o seu programa com Booleanos (O Padrão de Mercado):
+
+Repare como a lógica fica mais limpa:
+
+```javascript
+let temDivisor = false; // Começa como falso (status: "puro")
+
+for (let i = 2; i <= num / 2; i++) {
+    if (num % i == 0) {
+        temDivisor = true; // "Infiltrado encontrado!"
+        break;
+    }
+}
+
+// O "!" significa "NÃO". Lemos: "Se NÃO temDivisor"
+if (num > 1 && !temDivisor) {
+    resp.innerText = `${num} é primo.`;
+}
+
+```
+
+---
+
+### 🎒 Nota para o seu Guia: "Truthy" e "Falsy"
+
+No JavaScript, existe um conceito curioso: o número `0` é considerado "falso" em contextos lógicos, e qualquer outro número (como `1`) é considerado "verdadeiro".
+
+Por isso, se você fizer `if (0)`, o código não entra no bloco. Se fizer `if (1)`, ele entra. Mas, para evitar confusão na sua "equipe de aventureiros", **prefira sempre `true` ou `false**`.
+
+**Resumo da regra de ouro:** * Use **Inteiros** quando precisar **contar** (1, 2, 3...).
+
+* Use **Booleanos** quando precisar de um **interruptor** (Ligado/Desligado, Sim/Não, Sucesso/Falha).
