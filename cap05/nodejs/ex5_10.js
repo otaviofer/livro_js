@@ -16,4 +16,4 @@ const valorFinal = valorParcelas + (valor%num); // cálcula parcela final
 for (let i=1; i<num; i++){                      // enquanto i < num
     console.log(`${i}ª parcela: R$ ${valorParcelas.toFixed(2)}`);
 }
-console.log(`${i}ª parcela: R$ ${valorFinal.toFixed(2)}`);  // última parcela
+console.log(`${num}ª parcela: R$ ${valorFinal.toFixed(2)}`);  // última parcela
