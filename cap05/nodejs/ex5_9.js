@@ -8,12 +8,12 @@ const prompt = require("prompt-sync")();
 console.log("Programa número de etiquetas.");
 console.log("-----------------------------");
 
-const produto = prompt("insira um produto: ");  // entradas
+const produto = prompt("Insira um produto: ");  // entradas
 const num = Number(prompt("Nº de etiquetas: "));
 
 // cria laço de repetção até num/2 (pois imprime 2 etiquetas por linha)
 for (let i=1; i<=num; i++){
-    console.log(`${produto.padEnd(30, ".")} ${produto.padEnd(30, ".")}`)
+    console.log(`${produto.padEnd(25, ".")} ${produto.padEnd(25, ".")}`)
 }
 if(num % 2 == 1){           // se quantidade solicitada de etiquetas for impar...
     console.log(produto);   // imprime mais uma etiqueta
