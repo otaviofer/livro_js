@@ -15,6 +15,12 @@ const num = Number(prompt("Nº de frutas: "));
 let imprime = "";
 
 for (let i=1; i <= num; i++){
-    console.log(`${fruta}` + " * ")
+    if(i <= num) {
+        imprime += fruta;
+        if (i < num){
+            imprime += " * ";
+        }
+    }
 }
+console.log(imprime);
 
