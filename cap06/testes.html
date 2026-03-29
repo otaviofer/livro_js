@@ -1,0 +1,36 @@
+<!-- Espaço para testes -->
+
+<!-- 
+
+<script>
+    // TESTE 1
+
+    const cidades = ["Petolas"];        // declara e define conteudo inicial do vetor
+    console.log(cidades);
+    cidades.push("São Lourenço");       // add cidade ao final do vetor
+    console.log(cidades);
+
+    cidades.unshift("Porto Alegre");    // add ao início e desloca as demais
+    console.log(cidades);
+
+    const ultima = cidades.pop();       // remove a última cidade do vetor
+    console.log(cidades);
+
+    const primeira = cidades.shift();   // remove a primeira e "sobe" as demais
+    console.log(cidades);
+</script> -->
+
+<script>
+    // TESTE 2
+
+    const letras = ["A", "B", "C", "D"];    // declara e define conteudo inicial do vetor
+    const letras2 = letras.slice(-2);       // obtém 2 últimas letras
+    const letras3 = letras.slice(0, -1);    // obtém o início até o final, exceto a última
+    console.log(letras);
+    console.log(letras2);
+    console.log(letras3);
+
+    const retira = letras.splice(2, 1);     // remove a partir da posição 2, 1 elemento
+    console.log(letras);
+    console.log(retira);
+</script>
