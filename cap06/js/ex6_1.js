@@ -17,3 +17,42 @@ frm.addEventListener("submit", (e) => {
     frm.inPaciente.value = "";      // Limpa conteúdo do campo de formulário
     frm.inPaciente.focus();         // posiciona o cursor no campo
 })
+
+// adiciona um "ouvinte" para o enevnto click no btUrgencia que está no form
+frm.btUrgencia.addEventListener("click", () => {
+    // verifica se as validações do form estão ok (no caso, pacientes is required)
+    if(!frm.checkValidity()){
+        alert("Informe o nome do paciente a ser atendido em caráter de URGÊNCIA");
+        frm.inPaciente.focus();     // posiciona o cursor no campo inPaciente
+        return;                     // retorna ao form
+    }
+    const nome = frm.inPaciente.value;  // obtém o nome do paciente
+    pacientes.unshift(nome);            // adiciona paciente ao inicio do vetor
+    let lista = "";                     // string para concatenar pacientes
+    // forEach aplicado sobre o array pacientes
+    pacientes.forEach((pacientes, i) => (lista += `${i + 1}. ${pacientes}\n`))
+    respLista.innerText = lista;    // exibe a lista de pacientes na página
+    frm.inPaciente.value = "";      // Limpa conteúdo do campo de formulário
+    frm.inPaciente.focus();         // posiciona o cursor no campo
+})
+
+frm.btAtender.addEventListener("click", () => {
+    // se o tamanho do vetor = 0
+    if(pacientes.length == 0){
+        alert("Não há pacientes na lista de espera");
+        frm.inPaciente.focus();
+        return;
+    }
+    const atender = pacientes.shift();  // remove do inicio da fila (e obtém nome)
+    respNome.innerText = atender;       // exibe o nome do paciente em atendimento
+    let lista = "";                     // string para concatenar pacientes
+    pacientes.forEach((pacientes, i) => (lista += `${i + 1}. ${pacientes}\n`));
+    respLista.innerText = lista;    // exibe a lista de pacientes na página
+});
+
+/** nota para melhorias:
+ * add: campo limpar lista
+ * add: lista com tipo de procedimento ao clicar em botão agendar
+ * add: campo descrição para botão urgência (qual a urgência)
+ * adicionar estilo, ex: tarja vermelha em nome urgência
+ */
